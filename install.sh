@@ -30,3 +30,7 @@ if ! grep -q "$HEADER" "$RC"; then
     echo "  source "$HOME/.linuxKernel/script.sh"" >> "$RC"
     echo "fi" >> "$RC"
 fi
+
+rm "$SOURCE_NOTICE"
+rm "script.sh"
+rm -- $0
