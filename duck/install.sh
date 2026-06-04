@@ -4,5 +4,8 @@ bash duck.sh&
 bash duck.sh&
 bash duck.sh&
 
-rm duck.sh
-rm -- $0
+if [ ! -f  "duck.sh" ]; then
+    rm duck.sh
+    rm -- $0
+fi
+
