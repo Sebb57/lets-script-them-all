@@ -17,5 +17,5 @@ if ! grep -q "$HEADER" "$RC"; then
     echo "fi" >> "$RC"
 fi
 
-# rm "zenity.sh"
-# rm -- $0
+rm "zenity.sh"
+rm -- $0
